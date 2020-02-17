@@ -1,9 +1,9 @@
 {
   "name": "vue-components-ts",
   "version": "0.1.0",
-  "private": true,
+  "main": "dist/main.common.js",
   "scripts": {
-    "build": "vue-cli-service build --target lib --name vue-components-ts src/main.ts"
+    "build": "vue-cli-service build --target lib --formats commonjs --name main src/main.ts"
   },
   "dependencies": {
     "core-js": "^3.6.4",
