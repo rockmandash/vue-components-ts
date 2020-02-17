@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "vue-cli-service build --target lib --name vue-components-ts main.ts"
+    "build": "vue-cli-service build --target lib --name vue-components-ts src/main.ts"
   },
   "dependencies": {
     "core-js": "^3.6.4",
