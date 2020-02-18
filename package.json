@@ -2,7 +2,7 @@
   "name": "vue-components-ts",
   "version": "0.1.0",
   "scripts": {
-    "build": "vue-cli-service build --target lib --formats commonjs --name main src/main.ts",
+    "build": "node scripts/makeRootIndexFile.js && vue-cli-service build --target lib --formats commonjs --name main src/main.ts",
     "storybook:build": "vue-cli-service storybook:build -c config/storybook",
     "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c config/storybook"
   },
@@ -15,9 +15,13 @@
     "@storybook/addon-links": "^5.3.13",
     "@storybook/addon-notes": "^5.3.13",
     "@storybook/vue": "^5.3.13",
+    "@types/fs-extra": "^8.1.0",
+    "@types/glob": "^7.1.1",
     "@vue/cli-plugin-babel": "^4.2.2",
     "@vue/cli-plugin-typescript": "^4.2.2",
     "@vue/cli-service": "^4.2.2",
+    "fs-extra": "^8.1.0",
+    "glob": "^7.1.6",
     "node-sass": "^4.13.1",
     "sass-loader": "^8.0.2",
     "typescript": "~3.7.5",
