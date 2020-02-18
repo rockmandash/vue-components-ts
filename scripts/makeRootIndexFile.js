@@ -10,7 +10,7 @@ const rootIndexFileData = allUtilIndexFilePaths
     const fromPath = utilIndexFilePath
       .replace(paths.srcFolder, '.')
       .replace('/index.vue', '');
-    return `export { ${utilName} } from '${fromPath}';`;
+    return `export { default as ${utilName} } from '${fromPath}';`;
   })
   .join('\n');
 
