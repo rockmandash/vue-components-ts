@@ -1,12 +1,20 @@
 {
   "name": "vue-components-ts",
   "version": "0.1.0",
-  "main": "dist/main.common.js",
   "scripts": {
-    "build": "vue-cli-service build --target lib --formats commonjs --name main src/main.ts"
+    "build": "vue-cli-service build --target lib --formats commonjs --name main src/main.ts",
+    "storybook:build": "vue-cli-service storybook:build -c config/storybook",
+    "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c config/storybook"
   },
+  "main": "dist/main.common.js",
   "dependencies": {},
   "devDependencies": {
+    "@storybook/addon-actions": "^5.3.13",
+    "@storybook/addon-docs": "^5.3.13",
+    "@storybook/addon-knobs": "^5.3.13",
+    "@storybook/addon-links": "^5.3.13",
+    "@storybook/addon-notes": "^5.3.13",
+    "@storybook/vue": "^5.3.13",
     "@vue/cli-plugin-babel": "^4.2.2",
     "@vue/cli-plugin-typescript": "^4.2.2",
     "@vue/cli-service": "^4.2.2",
@@ -14,6 +22,7 @@
     "sass-loader": "^8.0.2",
     "typescript": "~3.7.5",
     "vue": "^2.6.11",
+    "vue-cli-plugin-storybook": "^1.2.0",
     "vue-template-compiler": "^2.6.11"
   }
 }
