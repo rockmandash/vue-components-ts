@@ -21,4 +21,4 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-notes'
   ]
-}
+};
