@@ -1383,7 +1383,7 @@
     prop-types "^15.7.2"
     util-deprecate "^1.0.2"
 
-"@storybook/addons@5.3.13":
+"@storybook/addons@5.3.13", "@storybook/addons@^5.3.13":
   version "5.3.13"
   resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-5.3.13.tgz#8c16fbab1142e2cd4bdfb93ffcb35a883dac2866"
   integrity sha512-Yjn8PXhSYw4bnB/l8ybhMw3eqpJlV3HlwMECYhRtVm+wTqal9OQlZkam5xclWm6PF/6DhyiPCt6vlXN3vfVGPA==
@@ -1396,7 +1396,7 @@
     global "^4.3.2"
     util-deprecate "^1.0.2"
 
-"@storybook/api@5.3.13":
+"@storybook/api@5.3.13", "@storybook/api@^5.3.13":
   version "5.3.13"
   resolved "https://registry.yarnpkg.com/@storybook/api/-/api-5.3.13.tgz#51cbdb461ff2ee8468a3c54411f42f07aa307f5d"
   integrity sha512-ZOBUOz0aRPD7w8UngcVOjwcXt417Zboi0ERW+Atn22ZUYqI3zri8M9EerLHvyKw7J42/gEIqQqg5PyfPcLJmeQ==
@@ -1470,7 +1470,7 @@
   dependencies:
     core-js "^3.0.1"
 
-"@storybook/components@5.3.13":
+"@storybook/components@5.3.13", "@storybook/components@^5.3.13":
   version "5.3.13"
   resolved "https://registry.yarnpkg.com/@storybook/components/-/components-5.3.13.tgz#646f8347ffa38298e3f9c1d15866c2167f577027"
   integrity sha512-AwMnLCStwqLWsBzXp7m/QXuJin//0l4FH+OXmnD/6GC8qEy4JuutEOPW35IE/Mp9KAvbapHcnPTRMmDohUsTcw==
@@ -1640,7 +1640,7 @@
     prop-types "^15.7.2"
     regenerator-runtime "^0.13.3"
 
-"@storybook/theming@5.3.13":
+"@storybook/theming@5.3.13", "@storybook/theming@^5.3.13":
   version "5.3.13"
   resolved "https://registry.yarnpkg.com/@storybook/theming/-/theming-5.3.13.tgz#17e8101e2d3ad3fb6245b2cb15b07e9f2a9881cd"
   integrity sha512-Zb07pDt8Sv5uq+xDW3TsiTXS9IGwUNwpkR6UQgKILFJ7HX2q4Tt9r+wIi1QCwozcROx4w/bP/8MAKpEAT212lw==
@@ -11573,6 +11573,19 @@ store2@^2.7.1:
   version "2.10.0"
   resolved "https://registry.yarnpkg.com/store2/-/store2-2.10.0.tgz#46b82bb91878daf1b0d56dec2f1d41e54d5103cf"
   integrity sha512-tWEpK0snS2RPUq1i3R6OahfJNjWCQYNxq0+by1amCSuw0mXtymJpzmZIeYpA1UAa+7B0grCpNYIbDcd7AgTbFg==
+
+storybook-addon-paddings@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/storybook-addon-paddings/-/storybook-addon-paddings-1.0.1.tgz#e88ad3fb7f7e4e765508905f55076809ba9a0795"
+  integrity sha512-Gd1XXPig6R+zP8lui9xsZAUa+PNY9OCoUn/89j+s2NNAQ+k+/6rUgZIUozKAf96E/Sc0QpB4UwSdmX0wkkQqgA==
+  dependencies:
+    "@storybook/addons" "^5.3.13"
+    "@storybook/api" "^5.3.13"
+    "@storybook/components" "^5.3.13"
+    "@storybook/theming" "^5.3.13"
+    core-js "^3.6.4"
+    memoizerific "^1.11.3"
+    react "^16.8.3"
 
 storybook-chromatic@^2.2.2:
   version "2.2.2"
