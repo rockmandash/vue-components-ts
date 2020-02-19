@@ -21,3 +21,6 @@ yarn-error.log*
 *.sln
 *.sw?
 src/main.ts
+
+# GitLab Page
+public/*
