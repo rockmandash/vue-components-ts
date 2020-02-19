@@ -1,0 +1,30 @@
+import { Meta, Props, Story, Preview } from '@storybook/addon-docs/blocks';
+import SayHello from './';
+
+<Meta title="MDX|UI/Gretting" component={SayHello} />
+
+# SayHello
+
+<Props of={SayHello} />
+
+You can say hello to Joseph
+
+<Preview>
+  <Story name="Joseph">
+    {{
+      components: { SayHello },
+      template: '<SayHello to="Joseph"/>'
+    }}
+  </Story>
+</Preview>
+
+You can also say hello to Amy
+
+<Preview>
+  <Story name="Amy">
+    {{
+      components: { SayHello },
+      template: '<SayHello to="Amy"/>'
+    }}
+  </Story>
+</Preview>

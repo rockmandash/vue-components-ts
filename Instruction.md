@@ -13,30 +13,29 @@
 - 1 個資料夾
 - 2 個檔案
 
-假設我今天要新增一個 `HelloWorld` Component，則可以使用以下方式
+假設我今天要新增一個 `SayHello` Component，則可以使用以下方式
 
 `index.vue` 完整程式碼
 
 ```vue
 <template>
-  <div>Hello {{ name }}</div>
+  <p>👋 Hello {{ to }}</p>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
 
 export default Vue.extend({
-  data() {
-    return {
-      name: 'James'
-    };
+  props: {
+    to: String
   }
 });
 </script>
 
 <style lang="scss" scoped>
-div {
-  font-size: 20px;
+p {
+  font-size: 30px;
+  color: royalblue;
 }
 </style>
 ```
@@ -48,16 +47,22 @@ Stories 可以有兩種方式 `js` 或是 `MDX`，推薦使用 [MDX](https://git
 `index.stories.js` 測試程式碼
 
 ```js
-import HelloWorld from './';
+import SayHello from './';
 
 export default {
-  title: 'HelloWorld' // 這邊可以加類別，比如說 "UI/HelloWorld"
+  title: 'REGULAR|UI/Gretting/SayHello' // 這邊可以加類別，比如說 "UI/HelloWorld"
 };
 
 // 一個 function 回傳一個 Vue Component
-export const basic = () => ({
-  components: { HelloWorld },
-  template: '<HelloWorld />'
+export const toJoseph = () => ({
+  components: { SayHello },
+  template: '<SayHello to="Joseph"/>'
+});
+
+// 一個 function 回傳一個 Vue Component
+export const toAmy = () => ({
+  components: { SayHello },
+  template: '<SayHello to="Amy"/>'
 });
 ```
 
@@ -67,22 +72,32 @@ export const basic = () => ({
 
 ```js
 import { Meta, Props, Story, Preview } from '@storybook/addon-docs/blocks';
-import HelloWorld from './';
+import SayHello from './';
 
-<Meta title="MDX|HelloWorld" component={HelloWorld} />
+<Meta title="MDX|UI/Gretting" component={SayHello} />
 
-# HelloWorld
+# SayHello
 
-<Props of={HelloWorld} />
+<Props of={SayHello} />
 
-This is a HelloWorld component, you can write markdown here
+You can say hello to Joseph
 
 <Preview>
-  <Story name="Basic">
+  <Story name="Joseph">
     {{
-      // Vue Component
-      components: { HelloWorld },
-      template: '<HelloWorld />',
+      components: { SayHello },
+      template: '<SayHello to="Joseph"/>'
+    }}
+  </Story>
+</Preview>
+
+You can also say hello to Amy
+
+<Preview>
+  <Story name="Amy">
+    {{
+      components: { SayHello },
+      template: '<SayHello to="Amy"/>'
     }}
   </Story>
 </Preview>
@@ -92,8 +107,8 @@ This is a HelloWorld component, you can write markdown here
 
 ```bash
 src
-  someComponents # <- 第一層類別一定要有
-    HelloWorld # <- 跟 component 名稱一樣的資料夾
+  UI # <- 第一層類別一定要有
+    SayHello # <- 跟 component 名稱一樣的資料夾
       index.vue # <- 主要的 Component
       index.stories.js # Storybook，就是上面的程式碼，如果不用 MDX 就使用這一個
       index.stories.mdx # <- 推薦 — Storybook MDX，就是上面的程式碼
@@ -133,8 +148,8 @@ Build 出 Storybook 靜態網站
 
 ```bash
 src
-  someComponents
-    HelloWorld
+  UI
+    SayHello
       index.vue
       index.stories.mdx
       OtherComponent.vue # <- 這邊可以自由加上任何檔案
