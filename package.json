@@ -1,6 +1,6 @@
 {
   "name": "vue-components-ts",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "scripts": {
     "build": "node scripts/makeRootIndexFile.js && vue-cli-service build --target lib --formats commonjs --name main src/main.ts && node ./scripts/makeType.js",
     "storybook:build": "vue-cli-service storybook:build -c config/storybook",
@@ -9,6 +9,7 @@
     "format": "prettier --config ./.prettierrc --write '**/*.{ts,js,css,html,json,vue,mdx}'"
   },
   "main": "dist/main.common.js",
+  "typings": "dist/main.common.d.ts",
   "peerDependencies": {
     "vue": ">=2.1.8"
   },
