@@ -2,7 +2,7 @@
   "name": "vue-components-ts",
   "version": "0.1.3",
   "scripts": {
-    "build": "node scripts/makeRootIndexFile.js && vue-cli-service build --target lib --formats commonjs --name main src/main.ts",
+    "build": "node scripts/makeRootIndexFile.js && vue-cli-service build --target lib --formats commonjs --name main src/main.ts && node ./scripts/makeType.js",
     "storybook:build": "vue-cli-service storybook:build -c config/storybook",
     "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c config/storybook",
     "release": "node ./scripts/autoCommitRelease.js && yarn run build && npm publish",
