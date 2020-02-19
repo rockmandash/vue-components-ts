@@ -1,6 +1,6 @@
 {
   "name": "vue-components-ts",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "scripts": {
     "build": "node scripts/makeRootIndexFile.js && vue-cli-service build --target lib --formats commonjs --name main src/main.ts && node ./scripts/makeType.js",
     "storybook:build": "vue-cli-service storybook:build -c config/storybook",
