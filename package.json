@@ -6,7 +6,7 @@
     "storybook:build": "vue-cli-service storybook:build -c config/storybook",
     "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c config/storybook",
     "release": "node ./scripts/autoCommitRelease.js && yarn run build && npm publish",
-    "format": "prettier --config ./.prettierrc --write '**/*.{ts,js,css,html,json,vue,mdx}'"
+    "format": "prettier --config ./.prettierrc --write '**/*.{ts,js,css,html,json,vue,md,mdx}'"
   },
   "main": "dist/main.common.js",
   "typings": "dist/main.d.ts",
