@@ -9,7 +9,7 @@ const typeFileData =
   allUtilIndexFilePaths
     .map(utilIndexFilePath => {
       const utilName = getParentFolderName(utilIndexFilePath);
-      return `export declare const ${utilName}: Vue;`;
+      return `export const ${utilName}: Vue;`;
     })
     .join('\n');
 
