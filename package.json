@@ -2,14 +2,14 @@
   "name": "vue-components-ts",
   "version": "0.1.9",
   "scripts": {
-    "build": "node scripts/makeRootIndexFile.js && vue-cli-service build --target lib --formats commonjs --name main src/main.ts && node ./scripts/makeType.js",
+    "build": "node scripts/makeRootIndexFile.js && vue-cli-service build --target lib --formats commonjs --name main src/main.ts",
     "storybook:build": "vue-cli-service storybook:build -c config/storybook",
     "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c config/storybook",
     "release": "node ./scripts/autoCommitRelease.js && yarn run build && npm publish",
     "format": "prettier --config ./.prettierrc --write '**/*.{ts,js,css,html,json,vue,mdx}'"
   },
   "main": "dist/main.common.js",
-  "typings": "dist/main.common.d.ts",
+  "typings": "dist/main.d.ts",
   "peerDependencies": {
     "vue": ">=2.1.8"
   },
