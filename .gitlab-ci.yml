@@ -1,13 +1,19 @@
-image: node:9.11.1
+image: node:12.16.1-alpine3.10
+
+before_script:
+  - pwd
+  - which nodejs
+  - nodejs -v
+  - which npm
+  - npm -v
 
 pages:
   cache:
     paths:
       - node_modules/
-
   script:
-    - yarn install
-    - yarn storybook:build
+    - npm ci
+    - npm storybook:build
   artifacts:
     paths:
       - public

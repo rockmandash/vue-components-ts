@@ -19,6 +19,7 @@ module.exports = {
     },
     '@storybook/addon-knobs',
     '@storybook/addon-links',
-    '@storybook/addon-notes'
+    '@storybook/addon-viewport/register',
+    '@storybook/addon-backgrounds/register'
   ]
 };

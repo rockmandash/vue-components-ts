@@ -5,6 +5,17 @@
 1. 開發環境：[Storybook](https://storybook.js.org/), [TypeScript](https://www.typescriptlang.org/)
 2. 打包環境：[Vue-cli 3](https://cli.vuejs.org/guide/build-targets.html#library)
 3. Documentation：[Storybook Docs](https://github.com/storybookjs/storybook/blob/next/addons/docs/docs/mdx.md)
+4. prettier template 使用 great-prettier-config
+5. 盡量使用 css module 或是 css-in-js，避免未來跟其他人 class name 衝突
+6. commit message 使用 standard-version，便能自動產出 changelog，規範 https://wadehuanglearning.blogspot.com/2019/05/commit-commit-commit-why-what-commit.html
+
+
+### addons
+
+除了 vue-cli-plugin-storybook 安裝的 addons 還額外安裝了
+
+1. @storybook/addon-viewport
+2. @storybook/addon-backgrounds
 
 ### 開發流程
 
@@ -128,15 +139,16 @@ src
 
 Vue-cli 3 會編譯出 `dist/` 資料夾，包含打包好的 bundle js
 
-- `npm run format`
-
-會根據專案的 `.prettierrc` 來 format 整個 codebase
-
 - `npm run release`
 
-會自動升 `package.json` 的版號並 commit 和加上對應的 `git tag`，然後會將 tag push 到遠端 `git push --follow-tags origin master`
-
 執行這個 script 的時候，需要確保沒有任何檔案在 git stage
+
+1. 會自動升 `package.json` 的版號並 commit 和加上對應的 `git tag`
+2. 產生 changelog
+3. build
+4. npm publish
+
+結束後可以手動下 `git push --follow-tags origin master` push commit
 
 - `npm run storybook:build`
 
@@ -153,4 +165,89 @@ src
       index.vue
       index.stories.mdx
       OtherComponent.vue # <- 這邊可以自由加上任何檔案
+```
+
+### Addons Example
+
+可以使用一些 Addons
+
+#### JS
+
+```js
+import { action } from '@storybook/addon-actions';
+import { linkTo } from '@storybook/addon-links';
+
+import MyButton from '../components/MyButton.vue';
+
+export default {
+  component: MyButton,
+  title: 'Button'
+};
+
+export const withText = () => ({
+  components: { MyButton },
+  template: '<my-button @click="action">Hello Button</my-button>',
+  methods: { action: action('clicked') }
+});
+
+export const withJSX = () => ({
+  render() {
+    return (
+      <MyButton onClick={linkTo('Button', 'With Some Emoji')}>
+        With JSX
+      </MyButton>
+    );
+  }
+});
+
+export const withSomeEmoji = () => ({
+  components: { MyButton },
+  template: '<my-button>😀 😎 👍 💯</my-button>'
+});
+```
+
+#### MDX
+
+```js
+
+import { Meta, Props, Story, Preview } from '@storybook/addon-docs/blocks';
+import { action } from "@storybook/addon-actions";
+import { linkTo } from '@storybook/addon-links'
+import MyButton from '../components/MyButton.vue';
+
+<Meta title="MDX|Button" component={MyButton} />
+
+# Button
+
+<Props of={MyButton} />
+
+This is a simple button with some text in it.
+
+<Preview>
+  <Story name="With Text">
+    {{
+        components: { MyButton },
+        template: '<my-button @click="action">Hello Button</my-button>',
+        methods: { action: action("clicked") }
+    }}
+  </Story>
+</Preview>
+
+You can perform some action when the button is clicked.
+
+<Preview>
+  <RMyButton onClick={linkTo('Button', 'With Some Emoji')}>With JSX</RMyButton>
+</Preview>
+
+You can even have Emoji in the button.
+
+<Preview>
+  <Story name="With Some Emoji">
+    {{
+        components: { MyButton },
+        template: '<my-button>😀 😎 👍 💯</my-button>'
+    }}
+  </Story>
+</Preview>
+
 ```

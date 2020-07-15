@@ -32,7 +32,8 @@ export default create({
   // inputTextColor: 'black',
   // inputBorderRadius: 4,
 
-  brandTitle: pkg.name
+  brandTitle: pkg.name,
   // brandUrl: 'https://example.com',
-  // brandImage: 'https://placehold.it/350x150'
+  brandImage:
+    'https://blog.chatisfy.com/wp-content/uploads/2019/09/Untitled-design-6.png'
 });

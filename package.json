@@ -1,46 +1,43 @@
 {
-  "name": "vue-components-ts",
-  "version": "0.1.20",
-  "scripts": {
-    "build": "node scripts/makeRootIndexFile.js && vue-cli-service build --target lib --formats commonjs --name main src/main.ts",
-    "storybook:build": "vue-cli-service storybook:build -c config/storybook -o public",
-    "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c config/storybook",
-    "release": "node ./scripts/autoCommitRelease.js && yarn run build && npm publish",
-    "format": "prettier --config ./.prettierrc --write '**/*.{ts,js,css,html,json,vue,md,mdx}'"
-  },
+  "name": "storybook-test",
+  "version": "0.1.0",
   "main": "dist/main.common.js",
   "typings": "dist/main.d.ts",
-  "peerDependencies": {
-    "vue": ">=2.1.8"
-  },
-  "devDependencies": {
-    "@storybook/addon-actions": "^5.3.13",
-    "@storybook/addon-backgrounds": "^5.3.13",
-    "@storybook/addon-console": "^1.2.1",
-    "@storybook/addon-docs": "^5.3.13",
-    "@storybook/addon-knobs": "^5.3.13",
-    "@storybook/addon-links": "^5.3.13",
-    "@storybook/addon-notes": "^5.3.13",
-    "@storybook/addon-viewport": "^5.3.13",
-    "@storybook/vue": "^5.3.13",
-    "@types/fs-extra": "^8.1.0",
-    "@types/glob": "^7.1.1",
-    "@vue/cli-plugin-babel": "^4.2.2",
-    "@vue/cli-plugin-typescript": "^4.2.2",
-    "@vue/cli-service": "^4.2.2",
-    "fs-extra": "^8.1.0",
-    "glob": "^7.1.6",
-    "node-sass": "^4.13.1",
-    "prettier": "^1.19.1",
-    "sass-loader": "^8.0.2",
-    "standard-version": "^7.1.0",
-    "storybook-addon-paddings": "^1.0.1",
-    "typescript": "~3.7.5",
-    "vue": "^2.6.11",
-    "vue-cli-plugin-storybook": "^1.2.0",
-    "vue-template-compiler": "^2.6.11"
-  },
   "files": [
     "dist"
-  ]
+  ],
+  "scripts": {
+    "build": "node scripts/makeRootIndexFile.js && vue-cli-service build --target lib --formats commonjs --name main src/main.ts",
+    "release": "standard-version && npm run build && npm publish",
+    "storybook:build": "vue-cli-service storybook:build -c config/storybook -o public",
+    "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c config/storybook"
+  },
+  "prettier": "great-prettier-config",
+  "devDependencies": {
+    "@storybook/addon-actions": ">=5.3.0",
+    "@storybook/addon-backgrounds": "^5.3.19",
+    "@storybook/addon-docs": ">=5.3.0",
+    "@storybook/addon-knobs": ">=5.3.0",
+    "@storybook/addon-links": ">=5.3.0",
+    "@storybook/addon-viewport": "^5.3.19",
+    "@storybook/vue": ">=5.3.0",
+    "@types/fs-extra": "^9.0.1",
+    "@types/glob": "^7.1.3",
+    "@vue/cli-plugin-babel": "~4.4.0",
+    "@vue/cli-plugin-typescript": "~4.4.0",
+    "@vue/cli-service": "~4.4.0",
+    "fs-extra": "^9.0.1",
+    "glob": "^7.1.6",
+    "great-prettier-config": "^2.0.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.2",
+    "standard-version": "^8.0.2",
+    "typescript": "~3.9.3",
+    "vue": "^2.6.11",
+    "vue-cli-plugin-storybook": "~1.3.0",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "peerDependencies": {
+    "vue": ">=2.6.11"
+  }
 }
